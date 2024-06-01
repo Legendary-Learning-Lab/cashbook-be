@@ -1,0 +1,19 @@
+# https://editorconfig.org/
+
+root = true
+
+[*]
+# text encoding
+charset = utf-8
+
+# line type & style
+end_of_line = lf
+insert_final_newline = true
+
+# indent style & size
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+#
+max_line_length = 100
