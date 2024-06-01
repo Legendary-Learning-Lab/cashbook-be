@@ -1,4 +1,5 @@
 # https://editorconfig.org/
+# 코드 스타일 검사 명령어: ./gradlew ktlintCheck
 
 root = true
 
