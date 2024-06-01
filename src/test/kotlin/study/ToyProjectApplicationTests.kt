@@ -1,13 +1,11 @@
-package _L.toy_project
+package study
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class ToyProjectApplicationTests {
-
-	@Test
-	fun contextLoads() {
-	}
-
+  @Test
+  fun contextLoads() {
+  }
 }

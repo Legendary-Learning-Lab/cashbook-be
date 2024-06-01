@@ -1,4 +1,4 @@
-package _L.toy_project
+package study
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class ToyProjectApplication
 
 fun main(args: Array<String>) {
-	runApplication<ToyProjectApplication>(*args)
+  runApplication<ToyProjectApplication>(*args)
 }
