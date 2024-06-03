@@ -115,6 +115,14 @@ ALTER USER '계정'@'localhost' IDENTIFIED WITH mysql_native_password BY '새로
 
 <br />
 
+## 🚀 기본 환경 실행
+
+<img width="900" alt="Hello World" src="https://github.com/Legendary-Learning-Lab/toy-project-be/assets/74173976/07dd41dd-7820-4c2c-9f92-0c24d5bd75fc">
+
+- <a href="https://github.com/Legendary-Learning-Lab/toy-project-be/blob/main/src/test/kotlin/study/ToyProjectApplicationTests.kt">main 함수</a>를 실행해서 8080 port에 접근하면, 제가 임시로 구성해 둔 `Hello World!`에 접근할 수 있는 것을 확인할 수 있습니다
+
+<br />
+
 <hr />
 
 updated : 2024.06.03 (Mon)
