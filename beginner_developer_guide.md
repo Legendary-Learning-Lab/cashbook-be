@@ -87,6 +87,8 @@ ALTER USER '계정'@'localhost' IDENTIFIED WITH mysql_native_password BY '새로
 | Sequel Ace | Mac                    | 전 개인적으로, 이거 사용하긴 했는데 ㅎㅎ |
 | DBeaver    | Windows, Mac, Linux... ||
 
+- 넓게 쓸 수 있는, DBeaver 채택! → <a href="https://dbeaver.io/download/">설치하러 가기</a>
+- 개인 환경에 맞게 설치한 후 실행
 
 <br />
 
