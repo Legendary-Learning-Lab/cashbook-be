@@ -90,6 +90,29 @@ ALTER USER '계정'@'localhost' IDENTIFIED WITH mysql_native_password BY '새로
 - 넓게 쓸 수 있는, DBeaver 채택! → <a href="https://dbeaver.io/download/">설치하러 가기</a>
 - 개인 환경에 맞게 설치한 후 실행
 
+<img width="900" alt="DBeaver Client Screen" src="https://github.com/Legendary-Learning-Lab/toy-project-be/assets/74173976/488ffc8a-2337-4d19-9eaa-c9ebac2f16b6">
+
+- plus 버튼 클릭!
+
+<hr />
+
+<img width="900" alt="test connection" src="https://github.com/Legendary-Learning-Lab/toy-project-be/assets/74173976/b2e65102-f2cc-488c-beaa-655024bd29ec">
+
+- 계정 정보, 기본 port 정보 등을 설정하고, test connection 클릭
+- 기본 계정 정보는 <a href="https://github.com/Legendary-Learning-Lab/toy-project-be/blob/main/src/main/resources/application.properties">application.properties</a>에서 확인 가능
+
+<hr />
+
+<img width="900" alt="Success Connect" src="https://github.com/Legendary-Learning-Lab/toy-project-be/assets/74173976/a943cecb-afad-4663-8eac-081d8427f021">
+
+- 필요한 패키지들이 설치되고, test connect가 성공하는 것을 확인할 수 있습니다 😊
+- test connect가 성공하면, 완료 버튼을 통해 만들면 됩니다! 👏👏
+
+#### ❗️ 참고
+
+- 혹시나 connect 실패가 뜬다면?
+  - mysql server가 돌아가고 있는지 내장 터미널에서 확인해보시길 바랍니다!
+
 <br />
 
 <hr />
