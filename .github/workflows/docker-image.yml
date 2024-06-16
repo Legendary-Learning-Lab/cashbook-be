@@ -22,10 +22,10 @@ jobs:
             java-version: '17'
 
         - name: Build Spring Application
-          uses: ./gradlew build
+          run: ./gradlew build
 
         - name: Build & Update Docker Container
-          uses: docker-compose build
+          run: docker-compose build
 
         - name: Start Docker Container
-          uses: docker-compose up -d
+          run: docker-compose up -d
