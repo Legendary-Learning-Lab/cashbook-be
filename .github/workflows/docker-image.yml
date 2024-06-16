@@ -24,5 +24,8 @@ jobs:
         - name: Build Spring Application
           uses: ./gradlew build
 
+        - name: Build & Update Docker Container
+          uses: docker-compose build
+
         - name: Start Docker Container
           uses: docker-compose up -d

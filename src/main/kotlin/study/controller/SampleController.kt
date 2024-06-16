@@ -9,4 +9,9 @@ class SampleController {
     fun home(): String {
         return "Hello, World!"
     }
+
+    @GetMapping("/push")
+    fun githookTest(): String {
+        return "push detected"
+    }
 }
