@@ -62,4 +62,4 @@
 
 
 ### 오류
-localhost 에서 Nginx가 실행되지 않는 경우, 도커에 Nginx가 실행되어 있는지 확인
+- localhost 에서 Nginx가 실행되지 않는 경우, 도커에 Nginx가 실행되어 있는지 확인
