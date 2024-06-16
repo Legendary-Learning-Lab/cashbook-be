@@ -17,5 +17,5 @@ jobs:
 
     - name: Create test.txt
       run: |
-        echo "push detected" > test.txt
-        cat test.txt
+        echo "push detected" > ./test.txt
+        cat ./test.txt
