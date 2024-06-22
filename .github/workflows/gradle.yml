@@ -11,7 +11,7 @@ on:
     branches: [ ]
 
 jobs:
-  build:
+  spring-build:
 
     # Workflow OS 지정
     runs-on: ubuntu-latest
@@ -53,6 +53,22 @@ jobs:
     #
     # - name: Build with Gradle 8.5
     #   run: gradle build
+
+
+
+  docker-build:
+
+      runs-on: ubuntu-latest
+      # 의존성 명시 (workflow 순서 명시)
+      needs: spring-build
+      permissions:
+          contents: read
+
+      steps:
+        - name: Build the Docker image
+          run: |
+            echo "🎉Success: 여기에 도달 🎉"
+
 
   # 의존성 그래프 제출
   # Why ?
