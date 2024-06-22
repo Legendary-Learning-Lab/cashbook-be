@@ -71,7 +71,7 @@ jobs:
             echo "current dir: $(pwd)"
             echo "list: $(ls)"
             echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-            docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }} .
+            docker build -t ${{ secrets.DOCKER_REPO }} .
 
 
   # 의존성 그래프 제출
