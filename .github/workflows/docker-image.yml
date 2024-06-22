@@ -18,11 +18,11 @@ jobs:
     # 따라서, github workflow가 돌아가는 공간에 결과물을 클론하여 가져갈 수 있도록 하위의 단계 지정
     - name: Checkout
     # 코드를 클론해가는 github action에는 여러 버전이 존재하는데, 그 중 4번째 버전을 선택 (기본값이었음)
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
 
     # Spring Build
     - name: Build with Gradle
-    - run: |
+      run: |
         chmod +x ./gradlew
         ./gradlew clean build -x test
         echo "Success: Spring Build"
