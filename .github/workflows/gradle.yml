@@ -68,7 +68,7 @@ jobs:
         - name: Build the Docker image
           # docker build . -f Dockerfile -t cashbook-docker-images:$(date +%s)
           run: |
-            echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }}
+            echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
             echo "🎉Success: Docker Hub Login 🎉"
 
 
