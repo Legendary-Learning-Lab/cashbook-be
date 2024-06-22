@@ -67,7 +67,8 @@ jobs:
       steps:
         - name: Build the Docker image
           run: |
-            echo "🎉Success: 여기에 도달 🎉"
+            docker build . --file Dockerfile --tag cashbook-docker-images:$(date +%s)
+            echo "🎉Success: Docker Build 🎉"
 
 
   # 의존성 그래프 제출
