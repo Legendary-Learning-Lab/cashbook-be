@@ -66,9 +66,10 @@ jobs:
 
       steps:
         - name: Build the Docker image
+          # docker build . -f Dockerfile -t cashbook-docker-images:$(date +%s)
           run: |
-            docker build . --file Dockerfile --tag cashbook-docker-images:$(date +%s)
-            echo "🎉Success: Docker Build 🎉"
+            echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }}
+            echo "🎉Success: Docker Hub Login 🎉"
 
 
   # 의존성 그래프 제출
