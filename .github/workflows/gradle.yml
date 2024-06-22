@@ -69,7 +69,7 @@ jobs:
           # docker build . -f Dockerfile -t cashbook-docker-images:$(date +%s)
           run: |
             echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-            docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}
+            docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }} .
 
 
   # 의존성 그래프 제출
