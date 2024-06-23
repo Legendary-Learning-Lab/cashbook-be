@@ -58,7 +58,7 @@ jobs:
               cd cashbook-be
               sudo git pull origin main
               sudo ./gradlew build
-              docker build -t cashbook .
+              # docker build 과정 추가하기
               docker-compose up -d
               echo  "🎉Success: Docker-Compose Up 🎉"
 
