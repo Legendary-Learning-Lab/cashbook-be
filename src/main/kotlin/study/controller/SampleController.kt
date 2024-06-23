@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.RestController
 class SampleController {
     @GetMapping("/")
     fun home(): String {
-        return "Hello, World! 2"
-    }
-
-    @GetMapping("/push")
-    fun githookTest(): String {
-        return "push detected"
+        return "Hello, World! Push!"
     }
 }
