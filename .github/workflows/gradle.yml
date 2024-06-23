@@ -64,14 +64,12 @@ jobs:
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_REPO }}
 
-    - name: Install SSH key
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.EC2_KEY }}
+    - name: Make PEM File
+      run: echo ${{ secrets.EC2_KEY }} > ssh_key.pem
 
     - name: SSH to EC2 instance
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER_NAME }}@${{ secrets.EC2_IP }}'
+          ssh -i ./ssh_key.pem ${{ secrets.SSH_ADDRESS }}
               
 
   # 의존성 그래프 제출
