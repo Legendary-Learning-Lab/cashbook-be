@@ -51,13 +51,15 @@ jobs:
     - name: Build with Gradle Wrapper
       run: |
         ./gradlew build
-        echo "🎉Success: Spring Build 🎉"
+        echo "🎉Success: Build Spring 🎉"
 
     - name: Login Docker-Hub
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: Build the Docker Image
-      run: docker build -t ${{ secrets.DOCKER_REPO }} .
+      run: | 
+        docker build -t ${{ secrets.DOCKER_REPO }} .
+        "🎉Success: Build Docker 🎉"
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_REPO }}
@@ -72,9 +74,8 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           envs: GITHUB_SHA
           script: |
-              sudo docker pull ${{ secrets.DOCKER_REPO }}
-              docker-compose up -d
-              docker image prune -f
+              "🎉Success: Login EC2 🎉"
+              
 
   # 의존성 그래프 제출
   # Why ?
