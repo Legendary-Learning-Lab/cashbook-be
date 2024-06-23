@@ -67,6 +67,8 @@ jobs:
       with:
           host: ${{ secrets.EC2_IP }}
           usename: ${{ secrets.EC2_USER_NAME }}
+          # 맥북 TextEdit 앱으로 pem 키 여는 방법
+          ## $ open -a TextEdit /path/to/your-key.pem
           key: ${{ secrets.EC2_KEY }}
           envs: GITHUB_SHA
           script: |
