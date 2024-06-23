@@ -65,12 +65,12 @@ jobs:
           contents: read
 
       steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
         - name: Build the Docker image
           # docker build . -f Dockerfile -t cashbook-docker-images:$(date +%s)
           run: |
-            cd ..  
-            echo "current dir: $(pwd)"
-            echo "list: $(ls)"
             echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
             docker build -t ${{ secrets.DOCKER_REPO }} .
             echo "🎉Success: Docker Build in repo 🎉"
