@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           script: |
               cd cashbook-be
-              git pull origin main
+              sudo git pull origin main
               ./gradlew build
               docker-compose up -d
               docker image prune -f
