@@ -62,10 +62,12 @@ jobs:
         echo  "🎉Success: Build Docker 🎉"
 
     - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_REPO }}
+      run: |
+        docker push ${{ secrets.DOCKER_REPO }}
+        echo  "🎉Success: Push Docker Image 🎉"
 
     - name: Make PEM File
-      run: echo "${{ secrets.EC2_KEY }}" | base64 --decode > ssh_key.pem
+      run: echo "${{ secrets.EC2_KEY }}" > ssh_key.pem
 
     - name: SSH to EC2 instance
       run: |
