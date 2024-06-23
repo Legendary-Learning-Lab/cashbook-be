@@ -55,6 +55,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           username: ${{ secrets.EC2_USER_NAME }}
           script: |
+              cd cashbook-be
               git pull origin main
               ./gradlew build
               docker-compose up -d
