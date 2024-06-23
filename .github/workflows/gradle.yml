@@ -38,14 +38,9 @@ jobs:
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
     # Spring Build
-    - name: Build with Gradle Wrapper
-      run: |
-        ./gradlew build
-        echo "🎉Success: Spring Build 🎉"
-
     # NOTE:
-      ## Gradle Wrapper를 사용하여 빌드하는 것이 권장되지만,
-      ## Gradle Wrapper가 없다면, 아래의 명령어를 통해 빌드!
+    ## Gradle Wrapper를 사용하여 빌드하는 것이 권장되지만,
+    ## Gradle Wrapper가 없다면, 아래의 명령어를 통해 빌드!
     # - name: Setup Gradle
     #   uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
     #   with:
@@ -53,26 +48,31 @@ jobs:
     #
     # - name: Build with Gradle 8.5
     #   run: gradle build
+    - name: Build with Gradle Wrapper
+      run: |
+        ./gradlew build
+        echo "🎉Success: Spring Build 🎉"
 
+    - name: Login Docker-Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
+    - name: Build the Docker Image
+      run: docker build -t ${{ secrets.DOCKER_REPO }} .
 
-  docker-build:
+    - name: Push Docker Image
+      run: docker push ${{ secrets.DOCKER_REPO }}
 
-      runs-on: ubuntu-latest
-      # 의존성 명시 (workflow 순서 명시)
-      needs: spring-build
-      permissions:
-          contents: read
-
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-
-        - name: Login Docker-Hub
-          run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
-        - name: Build the Docker image
-          run: docker build -t ${{ secrets.DOCKER_REPO }} .
+    - name: Deploy Server
+      uses: appleboy/ssh-action@master
+      with:
+          host: ${{ secrets.EC2_IP }}
+          usename: ${{ secrets.EC2_USER_NAME }}
+          key: ${{ secrets.EC2_KEY }}
+          envs: GITHUB_SHA
+          script: |
+              sudo docker pull ${{ secrets.DOCKER_REPO }}
+              docker-compose up -d
+              docker image prune -f
 
   # 의존성 그래프 제출
   # Why ?
