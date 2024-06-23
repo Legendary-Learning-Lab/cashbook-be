@@ -59,7 +59,7 @@ jobs:
     - name: Build the Docker Image
       run: | 
         docker build -t ${{ secrets.DOCKER_REPO }} .
-        "🎉Success: Build Docker 🎉"
+        echo  "🎉Success: Build Docker 🎉"
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_REPO }}
@@ -74,7 +74,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           envs: GITHUB_SHA
           script: |
-              "🎉Success: Login EC2 🎉"
+              echo "🎉Success: Login EC2 🎉"
               
 
   # 의존성 그래프 제출
