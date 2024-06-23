@@ -74,7 +74,7 @@ jobs:
           host: ${{ secrets.EC2_IP }}
           key: ${{ secrets.EC2_KEY }}
           username: ${{ secrets.EC2_USER_NAME }}
-          scripts: |
+          script: |
               sudo docker pull ${{ secrets.DOCKER_REPO }}
               docker-compose up -d
               echo  "🎉Success: Docker-Compose Up 🎉"
