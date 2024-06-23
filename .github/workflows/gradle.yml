@@ -66,12 +66,6 @@ jobs:
         docker push ${{ secrets.DOCKER_REPO }}
         echo  "🎉Success: Push Docker Image 🎉"
 
-    - name: Make PEM File
-      run: echo "${{ secrets.EC2_KEY }}" > ssh_key.pem
-
-    - name: Make PEM File Private
-      run: chmod 400 ./ssh_key.pem
-
     - name: SSH to EC2 instance
       uses: appleboy/ssh-action@master
       with:
