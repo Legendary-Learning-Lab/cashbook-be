@@ -48,26 +48,6 @@ jobs:
     #
     # - name: Build with Gradle 8.5
     #   run: gradle build
-    - name: Build with Gradle Wrapper
-      run: |
-        ./gradlew build
-        echo "🎉Success: Build Spring 🎉"
-
-    - name: Login Docker-Hub
-      run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USER_NAME }} --password-stdin
-        echo  "🎉Success: Login Docker 🎉"
-
-    - name: Build the Docker Image
-      run: | 
-        docker build -t ${{ secrets.DOCKER_REPO }} .
-        echo  "🎉Success: Build Docker 🎉"
-
-    - name: Push Docker Image
-      run: |
-        docker push ${{ secrets.DOCKER_REPO }}:latest
-        echo  "🎉Success: Push Docker Image 🎉"
-
     - name: SSH to EC2 instance
       uses: appleboy/ssh-action@master
       with:
@@ -75,9 +55,8 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           username: ${{ secrets.EC2_USER_NAME }}
           script: |
-              echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_ID }} --password-stdin
-              docker rm -f $(docker ps -qa)
-              docker pull ${{ secrets.DOCKER_REPO }}:latest
+              git pull origin main
+              ./gradlew build
               docker-compose up -d
               docker image prune -f
               echo  "🎉Success: Docker-Compose Up 🎉"
