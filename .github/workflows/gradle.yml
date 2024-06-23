@@ -64,17 +64,14 @@ jobs:
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_REPO }}
 
-    - name: Deploy Server
-      uses: appleboy/ssh-action@master
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.3
       with:
-          host: ${{ secrets.EC2_IP }}
-          usename: ${{ secrets.EC2_USER_NAME }}
-          # 맥북 TextEdit 앱으로 pem 키 여는 방법
-          ## $ open -a TextEdit /path/to/your-key.pem
-          key: ${{ secrets.EC2_KEY }}
-          envs: GITHUB_SHA
-          script: |
-              echo "🎉Success: Login EC2 🎉"
+        ssh-private-key: ${{ secrets.EC2_KEY }}
+
+    - name: SSH to EC2 instance
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER_NAME }}@${{ secrets.EC2_IP }}'
               
 
   # 의존성 그래프 제출
