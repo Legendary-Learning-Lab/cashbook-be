@@ -65,7 +65,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.DOCKER_REPO }}
+        docker push ${{ secrets.DOCKER_REPO }}:latest
         echo  "🎉Success: Push Docker Image 🎉"
 
     - name: SSH to EC2 instance
