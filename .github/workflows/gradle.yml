@@ -54,7 +54,9 @@ jobs:
         echo "🎉Success: Build Spring 🎉"
 
     - name: Login Docker-Hub
-      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        echo  "🎉Success: Login Docker 🎉"
 
     - name: Build the Docker Image
       run: | 
@@ -70,9 +72,12 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
           host: ${{ secrets.EC2_IP }}
-          username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_KEY }}
-              
+          username: ${{ secrets.EC2_USER_NAME }}
+          scripts: |
+              sudo docker pull ${{ secrets.DOCKER_REPO }}
+              docker-compose up -d
+              echo  "🎉Success: Docker-Compose Up 🎉"
 
   # 의존성 그래프 제출
   # Why ?
