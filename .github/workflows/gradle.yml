@@ -69,6 +69,9 @@ jobs:
     - name: Make PEM File
       run: echo "${{ secrets.EC2_KEY }}" > ssh_key.pem
 
+    - name: Make PEM File Private
+      run: chmod 400 ./ssh_key.pem
+
     - name: SSH to EC2 instance
       run: |
           ssh -i ./ssh_key.pem ${{ secrets.SSH_ADDRESS }}
