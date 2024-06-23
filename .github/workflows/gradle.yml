@@ -76,8 +76,9 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           script: |
               echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_ID }} --password-stdin
-              sudo docker pull ${{ secrets.DOCKER_REPO }}
+              sudo docker pull ${{ secrets.DOCKER_REPO }}:latest
               docker-compose up -d
+              docker image prune -f
               echo  "🎉Success: Docker-Compose Up 🎉"
 
   # 의존성 그래프 제출
