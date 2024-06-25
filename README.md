@@ -28,16 +28,16 @@
     cd cashbook-be
     ```
 
-3. 프로젝트를 빌드
+3. 프로젝트를 클린 빌드
 
     ```bash
-    ./gradlew build
+    ./gradlew clean build
     ```
 
 4. Docker 컨테이너를 실행하여 애플리케이션과 데이터베이스를 시작
 
     ```bash
-    docker-compose up -d
+    docker-compose up -d --build
     ```
 
 5. 웹 브라우저에서 http://localhost 에 접속하여 애플리케이션을 확인
