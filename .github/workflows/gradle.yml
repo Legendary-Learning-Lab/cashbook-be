@@ -56,6 +56,10 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           script: |
               cd cashbook-be
+              ## ? 테스트 등이 진행되어 EC2에 변화 사항이 생기면, 충돌을 이유로 git pull이 안될 수도 있음
+              ## ! 따라서, git stash stack을 활용하여 항상 clean한 상태를 유지할 수 있도록 방어 코드 작성
+              sudo git stash -u 
+              sudo git stash clear
               sudo git pull origin main
               sudo ./gradlew clean build
               docker-compose up -d --build

@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController
 class SampleController {
     @GetMapping("/")
     fun home(): String {
-        return "CI/CD Success!"
+        return "Hello! CI/CD Success!"
     }
 }
