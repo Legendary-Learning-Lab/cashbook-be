@@ -18,3 +18,6 @@ tab_width = 4
 
 # code line length
 max_line_length = 120
+
+# standard:no-empty-class-body 규칙 제외
+ktlint_standard_no-empty-class-body = disabled
