@@ -4,6 +4,7 @@ import jakarta.persistence.Column
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import study.enum.UserGender
 
 data class UserEntity(
     @Id
@@ -23,7 +24,7 @@ data class UserEntity(
     val userEmail: String,
 
     @Column(nullable = false)
-    val gender: String,
+    val gender: UserGender,
 
     @Column(nullable = false)
     val agreement: Boolean,
