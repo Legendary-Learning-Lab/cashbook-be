@@ -2,6 +2,7 @@ package study.entity
 
 // ? jakarta가 아닌 javax를 사용한 이유 → 호환성
 // 패키지 등장 시점: javax -> jakarta
+import study.enum.UserGender
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -27,7 +28,7 @@ data class UserEntity(
     val userEmail: String,
 
     @Column(nullable = false)
-    val gender: String,
+    val gender: UserGender,
 
     @Column(nullable = false)
     val agreement: Boolean,
