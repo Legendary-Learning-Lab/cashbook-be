@@ -44,6 +44,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("javax.persistence:javax.persistence-api:2.2")
+    implementation("org.hibernate:hibernate-core:5.6.3.Final")
 }
 
 tasks.withType<KotlinCompile> {
