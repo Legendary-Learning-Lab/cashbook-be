@@ -11,23 +11,30 @@ import study.enum.UserGender
 data class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val userId: Long = 0,
+    private var _userId: Long = 0,
 
     @Column(name = "user_password", nullable = false, unique = false)
-    val userPassword: String,
+    private var _userPassword: String,
 
     @Column(name = "user_name", nullable = false, unique = false)
-    val userName: String,
+    private var _userName: String,
 
     @Column(name = "user_age", nullable = false)
-    val userAge: Int,
+    private var _userAge: Int,
 
     @Column(name = "user_email", nullable = false, unique = true)
-    val userEmail: String,
+    private var _userEmail: String,
 
     @Column(name = "gender", nullable = false)
-    val gender: UserGender,
+    private var _gender: UserGender,
 
     @Column(name = "agreement", nullable = false)
-    val agreement: Boolean,
-)
+    private var _agreement: Boolean,
+) {
+    // TODO: Controller 구성하게 될 때 필요한 부분만 재구성
+    // ? 작성 예시를 위해 생성한 커스텀 getter
+    val userPassword: String
+        get() {
+            return _userPassword
+        }
+}
