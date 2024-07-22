@@ -13,21 +13,21 @@ data class UserEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val userId: Long = 0,
 
-    @Column(nullable = false, unique = false)
+    @Column(name = "user_password", nullable = false, unique = false)
     val userPassword: String,
 
-    @Column(nullable = false, unique = false)
+    @Column(name = "user_name", nullable = false, unique = false)
     val userName: String,
 
-    @Column(nullable = false)
+    @Column(name = "user_age", nullable = false)
     val userAge: Int,
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "user_email", nullable = false, unique = true)
     val userEmail: String,
 
-    @Column(nullable = false)
+    @Column(name = "gender", nullable = false)
     val gender: UserGender,
 
-    @Column(nullable = false)
+    @Column(name = "agreement", nullable = false)
     val agreement: Boolean,
 )
