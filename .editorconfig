@@ -18,3 +18,9 @@ tab_width = 4
 
 # code line length
 max_line_length = 120
+
+# Repository, Class 등 내용이 비어있을 때 에러가 나지 않도록 disable 처리
+ktlint_standard_no-empty-class-body = disabled
+
+# 가독성을 위해 빈 개행이 존재해도 에러가 나지 않도록 disable 처리
+ktlint_standard_no-blank-line-in-list = disabled
